@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Party Planner Solver</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Party Planner Solver</h1>
+    <p>Design a 6x6 layout and optimize item placement for max satisfied needs.</p>
+  </header>
+
+  <main>
+    <section class="left-column">
+      <div class="panel">
+        <h2>Board</h2>
+        <div id="board" class="board" aria-label="6x6 board"></div>
+        <div class="board-actions">
+          <button id="clearItemsBtn">Clear Items</button>
+          <button id="clearAllBtn">Clear All</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Solve Controls</h2>
+        <div class="control-grid">
+          <label>Mode
+            <select id="modeSelect">
+              <option value="unlimited">Unlimited</option>
+              <option value="budgeted">Budgeted</option>
+            </select>
+          </label>
+          <label>Budget
+            <input id="budgetInput" type="number" min="0" step="1" value="40" />
+          </label>
+          <label>Iterations
+            <input id="iterationsInput" type="number" min="100" step="100" value="3500" />
+          </label>
+          <label>Seed
+            <input id="seedInput" type="number" min="0" step="1" value="12345" />
+          </label>
+        </div>
+        <h3>Activation Perks</h3>
+        <div id="activationPerks" class="checkbox-list"></div>
+        <h3>Cost Perks / Item Prices</h3>
+        <div id="priceControls" class="price-grid"></div>
+        <button id="solveBtn" class="primary">Solve</button>
+      </div>
+    </section>
+
+    <section class="right-column">
+      <div class="panel">
+        <h2>Character Palette (drag onto board)</h2>
+        <div id="characterPalette" class="palette"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Item Palette (drag onto board)</h2>
+        <div id="itemPalette" class="palette"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Character Editor</h2>
+        <div id="characterEditor">Click a character on the board to edit needs.</div>
+      </div>
+
+      <div class="panel">
+        <h2>Solver Output</h2>
+        <pre id="solverOutput">Press Solve.</pre>
+      </div>
+    </section>
+  </main>
+
+  <script src="solver.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
